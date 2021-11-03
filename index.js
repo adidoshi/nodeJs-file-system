@@ -8,11 +8,11 @@ app.get("/", (req, res) => {
   let currentTimestamp = new Date().getTime().toString();
 
   fs.writeFileSync(
-    "currentDate-time.txt",
+    `${__dirname}/currentDate-time.txt`,
     `${date}, Current Timestamp: ${currentTimestamp}`
   );
 
-  fs.readFile("currentDate-time.txt", "utf-8", (err, data) => {
+  fs.readFile(`${__dirname}/currentDate-time.txt`, "utf-8", (err, data) => {
     if (err) throw err;
     else res.send(data);
   });
